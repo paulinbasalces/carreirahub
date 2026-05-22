@@ -2,19 +2,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let baseDeDados = [];
     let categoriaAtual = ''; // Guarda o estado para o botão "Voltar"
 
-    // 1. Carrega os Dados
+    // 1. Carrega os Dados do JSON
     fetch('dados.json')
         .then(response => response.json())
         .then(data => {
             baseDeDados = data.ferramentas;
             renderizarHome(baseDeDados);
-        });
+        })
+        .catch(erro => console.error('Erro ao carregar o JSON:', erro));
 
     // 2. Renderiza apenas os Grandes Cards de Categoria na Home
     function renderizarHome(ferramentas) {
         const gridHome = document.getElementById('grid-categorias-home');
+        gridHome.innerHTML = ''; // Limpa antes de renderizar
         
-        // Extrai categorias únicas
+        // Extrai categorias únicas e conta os itens
         const categoriasInfo = ferramentas.reduce((acc, f) => {
             if (!acc[f.categoria]) acc[f.categoria] = { emoji: f.emoji, count: 0 };
             acc[f.categoria].count++;
@@ -52,23 +54,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const gridModal = document.getElementById('grid-ferramentas-modal');
         gridModal.innerHTML = itensCategoria.map(item => `
-            <article class="card" onclick="abrirModalFerramenta('${item.id}')" style="box-shadow: none; border-color: rgba(0,0,0,0.1);">
+            <article class="card" onclick="abrirModalFerramenta('${item.id}')" style="box-shadow: none; border-color: rgba(0,0,0,0.1); animation: none; transform: none; opacity: 1;">
                 <div class="card-header">
                     <h3>${item.nome}</h3>
                 </div>
                 <p>${item.dor_resolvida}</p>
-                <span style="color: var(--accent-primary); font-size: 0.9rem; font-weight: 600;">Ver detalhes →</span>
+                <span style="color: var(--accent-primary); font-size: 0.9rem; font-weight: 600; margin-top: auto;">Ver detalhes →</span>
             </article>
         `).join('');
 
         mostrarOverlay();
         document.getElementById('modal-ferramenta').classList.add('hidden');
         document.getElementById('modal-categoria').classList.remove('hidden');
+        document.getElementById('modal-categoria').scrollTo(0, 0); // Rola o modal pro topo
     };
 
     // 4. Abre o Modal da Ferramenta (Micro-artigo e Ad final)
     window.abrirModalFerramenta = function(id) {
         const ferramenta = baseDeDados.find(f => f.id === id);
+        if (!ferramenta) return;
         
         document.getElementById('artigo-emoji').textContent = ferramenta.emoji;
         document.getElementById('artigo-categoria').textContent = ferramenta.categoria;
@@ -80,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mostrarOverlay();
         document.getElementById('modal-categoria').classList.add('hidden');
         document.getElementById('modal-ferramenta').classList.remove('hidden');
+        document.getElementById('modal-ferramenta').scrollTo(0, 0); // Rola o modal pro topo
     };
 
     // 5. Funções de Controle dos Modais
@@ -98,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.fecharAoClicarFora = function(event) {
+        // Se clicar no fundo escuro (fora da caixa branca), fecha tudo
         if (event.target.id === 'modal-overlay') {
             fecharTodosModais();
         }
