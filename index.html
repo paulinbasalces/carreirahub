@@ -3,32 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Curadoria | Ferramentas e Atalhos</title>
-    <link rel="stylesheet" href="style.css?v=4">
+    <title>Portal Carreira do Futuro | Ferramentas e Atalhos Profissionais</title>
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
     <header class="cabecalho-site">
         <div class="container nav-bar">
-            <h1 class="logotipo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Portal<span>Curadoria</span></h1>
+            <h1 class="logotipo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Portal<span>Carreira do Futuro</span></h1>
         </div>
     </header>
 
     <main class="container" id="conteudo-principal">
         <section class="hero">
             <h2>Escolha sua jornada</h2>
-            <p>Explore nossa curadoria de ferramentas e conteúdos gratuitos para alavancar sua carreira.</p>
+            <p>Explore nossa seleção de ferramentas e conteúdos gratuitos para alavancar sua trajetória profissional.</p>
+            
+            <div class="busca-container">
+                <form action="https://www.google.com/search" method="get" target="_blank" class="busca-form" role="search">
+                    <label for="campo-busca" class="sr-only">Pesquisar no site</label>
+                    <input type="search" id="campo-busca" name="q" placeholder="Pesquisar ferramentas, cálculos e vagas..." aria-label="Pesquisar ferramentas e cálculos" required>
+                    <button type="submit" class="btn-busca" aria-label="Realizar busca">Buscar</button>
+                </form>
+            </div>
         </section>
 
         <div id="container-categorias-home"></div>
     </main>
 
-    <div id="modal-overlay" class="modal-overlay hidden" onclick="fecharAoClicarFora(event)">
-        <div id="modal-ferramenta" class="modal-content hidden">
-            <button class="btn-fechar" onclick="fecharTodosModais()">✕</button>
+    <div id="modal-overlay" class="modal-overlay hidden" onclick="fecharAoClicarFora(event)" aria-hidden="true">
+        <div id="modal-ferramenta" class="modal-content hidden" role="dialog" aria-modal="true" aria-labelledby="artigo-titulo">
+            <button class="btn-fechar" onclick="fecharTodosModais()" aria-label="Fechar janela">✕</button>
             
             <div class="modal-header">
-                <span id="artigo-emoji" class="emoji-gigante"></span>
+                <span id="artigo-emoji" class="emoji-gigante" aria-hidden="true"></span>
                 <h2 id="artigo-titulo"></h2>
                 <span id="artigo-categoria" class="tag-categoria"></span>
             </div>
@@ -54,11 +62,11 @@
 
     <footer class="rodape-site">
         <div class="container">
-            <p><strong>Portal Curadoria</strong> &copy; 2026. Construído para o trabalhador moderno.</p>
+            <p><strong>Portal Carreira do Futuro</strong> &copy; 2026. Construído para o trabalhador moderno.</p>
             <p>Nenhuma ferramenta listada patrocinou nossa análise. Nossa monetização vem exclusivamente dos anúncios exibidos.</p>
         </div>
     </footer>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 </body>
 </html>
