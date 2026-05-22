@@ -3,66 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curadoria Digital | Ferramentas e Atalhos para Produtividade</title>
-    <meta name="description" content="Encontre e compare as melhores ferramentas digitais de produtividade, design e gestão. Curadoria manual e acessível.">
-    
+    <title>Portal Curadoria | Ferramentas e Atalhos</title>
     <link rel="stylesheet" href="style.css">
-    
-    </head>
+</head>
 <body>
 
-    <a href="#conteudo-principal" class="sr-only-focusable">Pular para o conteúdo principal</a>
-
-    <header role="banner" class="cabecalho-site">
-        <div class="container">
-            <h1 class="logotipo">Portal<span>Curadoria</span></h1>
-            <nav aria-label="Navegação Principal">
-                <ul class="menu-principal">
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#sobre">Sobre a Curadoria</a></li>
-                </ul>
+    <header class="cabecalho-site">
+        <div class="container nav-bar">
+            <h1 class="logotipo" onclick="voltarParaHome()">Portal<span>Curadoria</span></h1>
+            <nav>
+                <a href="#" onclick="voltarParaHome()">Início</a>
             </nav>
         </div>
     </header>
 
-    <main id="conteudo-principal" role="main">
+    <main class="container" id="conteudo-principal">
         
-        <section class="hero" aria-labelledby="titulo-hero">
-            <div class="container">
-                <h2 id="titulo-hero">Atalhos para as melhores ferramentas digitais</h2>
-                <p>Curadoria humana focada em produtividade e utilidade, sem ruído.</p>
-                
-                <form class="barra-busca" role="search">
-                    <label for="campo-busca" class="sr-only">Buscar por ferramenta ou tema</label>
-                    <input type="search" id="campo-busca" placeholder="Ex: organizador financeiro, currículo...">
-                    <button type="button" id="btn-buscar">Buscar</button>
-                </form>
-            </div>
-        </section>
+        <div id="home-view">
+            <section class="hero">
+                <h2>Atalhos para a sua carreira</h2>
+                <p>Conteúdo e ferramentas organizadas para quem busca ou já tem emprego.</p>
+            </section>
 
-        <aside class="container area-adsense" aria-label="Publicidade">
-            <p class="ads-label">Publicidade</p>
-            </aside>
+            <div id="container-categorias"></div>
+        </div>
 
-        <section class="container" aria-labelledby="titulo-ferramentas">
-            <h2 id="titulo-ferramentas" class="sr-only">Lista de Ferramentas Curadas</h2>
+        <div id="detalhes-view" class="hidden">
+            <button class="btn-voltar" onclick="voltarParaHome()">← Voltar para o início</button>
             
-            <div id="filtros-categoria" class="filtros" role="group" aria-label="Filtrar por categorias"></div>
-
-            <div id="grid-ferramentas" class="grid-cards">
+            <article class="conteudo-artigo">
+                <div class="artigo-header">
+                    <span id="artigo-emoji" class="emoji-gigante"></span>
+                    <div>
+                        <span id="artigo-categoria" class="tag-categoria"></span>
+                        <h2 id="artigo-titulo"></h2>
+                    </div>
                 </div>
-        </section>
 
-        <aside class="container area-adsense" aria-label="Publicidade">
-            <p class="ads-label">Publicidade</p>
-            </aside>
+                <div class="dor-box">
+                    <strong>💡 Resolve o problema:</strong>
+                    <p id="artigo-dor"></p>
+                </div>
+
+                <div class="artigo-corpo">
+                    <h3>Sobre esta indicação</h3>
+                    <p id="artigo-descricao"></p>
+                </div>
+
+                <div class="area-adsense ads-interna">
+                    <p class="ads-label">Publicidade</p>
+                </div>
+
+                <div class="artigo-acao">
+                    <a id="artigo-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-primario">Acessar Plataforma Oficial</a>
+                </div>
+            </article>
+        </div>
 
     </main>
 
-    <footer role="contentinfo" class="rodape-site">
+    <footer class="rodape-site">
         <div class="container">
-            <p id="sobre">Nossa curadoria é manual. Priorizamos ferramentas acessíveis e úteis para o seu dia a dia.</p>
-            <p>&copy; 2026 Portal Curadoria. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Portal Curadoria. Feito para o trabalhador moderno.</p>
         </div>
     </footer>
 
