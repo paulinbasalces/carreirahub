@@ -1,51 +1,80 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const grid = document.getElementById('grid-ferramentas');
+    let baseDeDados = [];
 
-  // Busca os dados centralizados no JSON
-  fetch('dados.json')
-    .then(response => response.json())
-    .then(data => {
-      renderizarCards(data.ferramentas);
-      injetarSchemaSEO(data.ferramentas); // Injeta o SEO dinâmico
-    })
-    .catch(erro => {
-      console.error('Erro ao carregar ferramentas:', erro);
-      grid.innerHTML = '<p>Erro ao carregar os dados. Tente atualizar a página.</p>';
-    });
+    fetch('dados.json')
+        .then(response => response.json())
+        .then(data => {
+            baseDeDados = data.ferramentas;
+            renderizarCategorias(baseDeDados);
+        });
 
-  function renderizarCards(ferramentas) {
-    grid.innerHTML = ferramentas.map(ferramenta => `
-      <article class="card">
-        <div class="card-header">
-          <span class="card-emoji" aria-hidden="true">${ferramenta.emoji}</span>
-          <h3>${ferramenta.nome}</h3>
-        </div>
-        <span class="dor-badge">💡 Resolve: ${ferramenta.dor_resolvida}</span>
-        <p>${ferramenta.descricao}</p>
-        <a href="${ferramenta.url}" target="_blank" rel="noopener noreferrer">Acessar Ferramenta</a>
-      </article>
-    `).join('');
-  }
+    function renderizarCategorias(ferramentas) {
+        const container = document.getElementById('container-categorias');
+        container.innerHTML = '';
 
-  // Essa função garante que o Google leia os dados antes mesmo de renderizar a tela
-  function injetarSchemaSEO(ferramentas) {
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "itemListElement": ferramentas.map((f, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "item": {
-          "@type": "WebApplication",
-          "name": f.nome,
-          "description": f.descricao,
-          "applicationCategory": "BusinessApplication"
-        }
-      }))
+        // Agrupar ferramentas por categoria
+        const categorias = ferramentas.reduce((acc, ferramenta) => {
+            if (!acc[ferramenta.categoria]) acc[ferramenta.categoria] = [];
+            acc[ferramenta.categoria].push(ferramenta);
+            return acc;
+        }, {});
+
+        // Renderizar cada bloco de categoria
+        Object.keys(categorias).forEach((nomeCategoria, index) => {
+            const itens = categorias[nomeCategoria];
+            const emojiCat = itens[0].emoji; // Pega o emoji do primeiro item
+
+            const section = document.createElement('section');
+            section.className = 'sessao-categoria';
+            section.innerHTML = `
+                <h2 class="sessao-titulo">${emojiCat} ${nomeCategoria}</h2>
+                <div class="grid-cards">
+                    ${itens.map(item => `
+                        <article class="card" onclick="abrirArtigo('${item.id}')">
+                            <div class="card-header">
+                                <span class="card-emoji">${item.emoji}</span>
+                                <h3>${item.nome}</h3>
+                            </div>
+                            <p>${item.descricao}</p>
+                            <span class="btn-secundario">Ler análise completa →</span>
+                        </article>
+                    `).join('')}
+                </div>
+            `;
+            container.appendChild(section);
+
+            // Injetar Bloco de AdSense a cada 2 categorias (para não poluir demais)
+            if ((index + 1) % 2 === 0 && index !== Object.keys(categorias).length - 1) {
+                const adsHTML = document.createElement('div');
+                adsHTML.className = 'area-adsense';
+                adsHTML.innerHTML = '<p class="ads-label">Publicidade (AdSense)</p>';
+                container.appendChild(adsHTML);
+            }
+        });
+    }
+
+    // Função para simular a subpágina (SPA)
+    window.abrirArtigo = function(id) {
+        const ferramenta = baseDeDados.find(f => f.id === id);
+        if (!ferramenta) return;
+
+        // Preenche os dados
+        document.getElementById('artigo-emoji').textContent = ferramenta.emoji;
+        document.getElementById('artigo-categoria').textContent = ferramenta.categoria;
+        document.getElementById('artigo-titulo').textContent = ferramenta.nome;
+        document.getElementById('artigo-dor').textContent = ferramenta.dor_resolvida;
+        document.getElementById('artigo-descricao').textContent = ferramenta.descricao;
+        document.getElementById('artigo-link').href = ferramenta.url;
+
+        // Alterna as visões
+        document.getElementById('home-view').classList.add('hidden');
+        document.getElementById('detalhes-view').classList.remove('hidden');
+        window.scrollTo(0, 0);
     };
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify(schema);
-    document.head.appendChild(script);
-  }
+
+    window.voltarParaHome = function() {
+        document.getElementById('detalhes-view').classList.add('hidden');
+        document.getElementById('home-view').classList.remove('hidden');
+        window.scrollTo(0, 0);
+    };
 });
