@@ -1,71 +1,75 @@
 document.addEventListener('DOMContentLoaded', () => {
     let baseDeDados = [];
+    let categoriaAtual = ''; // Guarda o estado para o botão "Voltar"
 
-    // Busca os dados centralizados
+    // 1. Carrega os Dados
     fetch('dados.json')
         .then(response => response.json())
         .then(data => {
             baseDeDados = data.ferramentas;
-            renderizarCategorias(baseDeDados);
-        })
-        .catch(erro => console.error('Falha na orquestração dos dados:', erro));
+            renderizarHome(baseDeDados);
+        });
 
-    function renderizarCategorias(ferramentas) {
-        const container = document.getElementById('container-categorias');
-        container.innerHTML = '';
-
-        const categorias = ferramentas.reduce((acc, ferramenta) => {
-            if (!acc[ferramenta.categoria]) acc[ferramenta.categoria] = [];
-            acc[ferramenta.categoria].push(ferramenta);
+    // 2. Renderiza apenas os Grandes Cards de Categoria na Home
+    function renderizarHome(ferramentas) {
+        const gridHome = document.getElementById('grid-categorias-home');
+        
+        // Extrai categorias únicas
+        const categoriasInfo = ferramentas.reduce((acc, f) => {
+            if (!acc[f.categoria]) acc[f.categoria] = { emoji: f.emoji, count: 0 };
+            acc[f.categoria].count++;
             return acc;
         }, {});
 
-        Object.keys(categorias).forEach((nomeCategoria, catIndex) => {
-            const itens = categorias[nomeCategoria];
-            const emojiCat = itens[0].emoji;
+        let delayCount = 0;
+        Object.keys(categoriasInfo).forEach(cat => {
+            const delay = (delayCount * 0.1) + 's';
+            delayCount++;
 
-            const section = document.createElement('section');
-            section.className = 'sessao-categoria';
-            
-            // Injeta o HTML com um atraso matemático na animação de cada card
-            section.innerHTML = `
-                <h2 class="sessao-titulo">${emojiCat} ${nomeCategoria}</h2>
-                <div class="grid-cards">
-                    ${itens.map((item, itemIndex) => {
-                        // Calcula um atraso progressivo (Stagger Effect)
-                        const delay = (itemIndex * 0.1) + 's';
-                        return `
-                        <article class="card" style="animation-delay: ${delay};" onclick="abrirArtigo('${item.id}')">
-                            <div class="card-header">
-                                <span class="card-emoji">${item.emoji}</span>
-                                <h3>${item.nome}</h3>
-                            </div>
-                            <p>${item.descricao}</p>
-                            <span style="color: var(--accent-primary); font-weight: 600; margin-top: auto;">
-                                Explorar recurso →
-                            </span>
-                        </article>
-                        `;
-                    }).join('')}
+            const card = document.createElement('article');
+            card.className = 'card';
+            card.style.animationDelay = delay;
+            card.innerHTML = `
+                <div class="card-header" style="flex-direction: column; align-items: flex-start;">
+                    <span class="card-emoji">${categoriasInfo[cat].emoji}</span>
+                    <h3 style="font-size: 1.5rem; margin-top:16px;">${cat}</h3>
                 </div>
+                <p style="margin-top: 8px;">Explore ${categoriasInfo[cat].count} recursos curados.</p>
             `;
-            container.appendChild(section);
-
-            // Injeção elegante do bloco de anúncios
-            if ((catIndex + 1) % 2 === 0 && catIndex !== Object.keys(categorias).length - 1) {
-                const adsHTML = document.createElement('div');
-                adsHTML.style.cssText = "background: rgba(15,23,42,0.02); border: 1px dashed rgba(15,23,42,0.1); border-radius: 16px; padding: 40px; margin: 60px 0; text-align: center;";
-                adsHTML.innerHTML = '<span style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:2px;">Espaço Publicitário Reservado</span>';
-                container.appendChild(adsHTML);
-            }
+            // Clicar abre o Modal de Categoria
+            card.onclick = () => abrirModalCategoria(cat);
+            gridHome.appendChild(card);
         });
     }
 
-    // Transição de Estado da SPA
-    window.abrirArtigo = function(id) {
-        const ferramenta = baseDeDados.find(f => f.id === id);
-        if (!ferramenta) return;
+    // 3. Abre o Modal da Categoria (Listagem de Ferramentas)
+    window.abrirModalCategoria = function(nomeCategoria) {
+        categoriaAtual = nomeCategoria;
+        const itensCategoria = baseDeDados.filter(f => f.categoria === nomeCategoria);
+        
+        document.getElementById('cat-emoji').textContent = itensCategoria[0].emoji;
+        document.getElementById('cat-titulo').textContent = nomeCategoria;
 
+        const gridModal = document.getElementById('grid-ferramentas-modal');
+        gridModal.innerHTML = itensCategoria.map(item => `
+            <article class="card" onclick="abrirModalFerramenta('${item.id}')" style="box-shadow: none; border-color: rgba(0,0,0,0.1);">
+                <div class="card-header">
+                    <h3>${item.nome}</h3>
+                </div>
+                <p>${item.dor_resolvida}</p>
+                <span style="color: var(--accent-primary); font-size: 0.9rem; font-weight: 600;">Ver detalhes →</span>
+            </article>
+        `).join('');
+
+        mostrarOverlay();
+        document.getElementById('modal-ferramenta').classList.add('hidden');
+        document.getElementById('modal-categoria').classList.remove('hidden');
+    };
+
+    // 4. Abre o Modal da Ferramenta (Micro-artigo e Ad final)
+    window.abrirModalFerramenta = function(id) {
+        const ferramenta = baseDeDados.find(f => f.id === id);
+        
         document.getElementById('artigo-emoji').textContent = ferramenta.emoji;
         document.getElementById('artigo-categoria').textContent = ferramenta.categoria;
         document.getElementById('artigo-titulo').textContent = ferramenta.nome;
@@ -73,16 +77,29 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('artigo-descricao').textContent = ferramenta.descricao;
         document.getElementById('artigo-link').href = ferramenta.url;
 
-        document.getElementById('home-view').classList.add('hidden');
-        document.getElementById('detalhes-view').classList.remove('hidden');
-        
-        // Rola suavemente para o topo da subpágina
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        mostrarOverlay();
+        document.getElementById('modal-categoria').classList.add('hidden');
+        document.getElementById('modal-ferramenta').classList.remove('hidden');
     };
 
-    window.voltarParaHome = function() {
-        document.getElementById('detalhes-view').classList.add('hidden');
-        document.getElementById('home-view').classList.remove('hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    // 5. Funções de Controle dos Modais
+    window.mostrarOverlay = function() {
+        document.getElementById('modal-overlay').classList.remove('hidden');
+        document.body.classList.add('modal-open'); // Remove rolagem do fundo
+    };
+
+    window.voltarParaCategoria = function() {
+        abrirModalCategoria(categoriaAtual);
+    };
+
+    window.fecharTodosModais = function() {
+        document.getElementById('modal-overlay').classList.add('hidden');
+        document.body.classList.remove('modal-open');
+    };
+
+    window.fecharAoClicarFora = function(event) {
+        if (event.target.id === 'modal-overlay') {
+            fecharTodosModais();
+        }
     };
 });
