@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Curadoria | Ferramentas e Atalhos</title>
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
     <main class="container" id="conteudo-principal">
         <section class="hero">
             <h2>Escolha sua jornada</h2>
-            <p>Selecione uma categoria abaixo para explorar ferramentas e conteúdos.</p>
+            <p>Selecione uma categoria abaixo para explorar ferramentas e conteúdos gratuitos.</p>
         </section>
 
         <div id="grid-categorias-home" class="grid-cards"></div>
@@ -34,7 +34,7 @@
             </div>
 
             <div class="area-adsense ads-modal">
-                <p class="ads-label">Publicidade (AdSense Topo)</p>
+                <p class="ads-label">Espaço Publicitário (AdSense Topo)</p>
             </div>
 
             <div id="grid-ferramentas-modal" class="grid-cards">
@@ -42,7 +42,7 @@
         </div>
 
         <div id="modal-ferramenta" class="modal-content hidden">
-            <button class="btn-voltar" onclick="voltarParaCategoria()">← Voltar</button>
+            <button class="btn-voltar" onclick="voltarParaCategoria()">← Voltar para a lista</button>
             <button class="btn-fechar" onclick="fecharTodosModais()">✕</button>
             
             <div class="modal-header">
@@ -52,25 +52,25 @@
             </div>
 
             <div class="dor-box">
-                <strong>💡 Resolve:</strong>
+                <strong>💡 Resolve o problema:</strong>
                 <p id="artigo-dor"></p>
             </div>
 
             <div class="artigo-corpo">
-                <p id="artigo-descricao"></p>
+                <p id="artigo-descricao" style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px;"></p>
             </div>
 
             <div class="area-adsense ads-modal">
-                <p class="ads-label">Publicidade (AdSense Conversão)</p>
+                <p class="ads-label">Espaço Publicitário (AdSense Conversão)</p>
             </div>
 
-            <div class="artigo-acao">
+            <div style="text-align: center; margin-top: 40px;">
                 <a id="artigo-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-primario">Acessar Plataforma Oficial</a>
             </div>
         </div>
 
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>
