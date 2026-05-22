@@ -1,274 +1,94 @@
-/* =========================================
-   SISTEMA DE DESIGN PREMIUM: GLASS & GLOW
-   ========================================= */
+/* Adicione isso ao final do seu style.css atual */
 
-:root {
-  /* Paleta Elevada: Tons dinâmicos e fundos imersivos */
-  --bg-base: #f8fafc;
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  
-  /* Cores de Ação com saturação refinada */
-  --accent-primary: #e05c36; /* Terracota vibrante */
-  --accent-secondary: #6366f1; /* Índigo profundo */
-  
-  /* Propriedades do Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.5);
-  --glass-border: rgba(255, 255, 255, 0.8);
-  --glass-shadow: 0 8px 32px rgba(15, 23, 42, 0.04);
-  
-  /* Curvas de Animação Físicas */
-  --spring-easing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+/* Bloqueia rolagem do fundo quando modal está aberto */
+body.modal-open {
+  overflow: hidden; 
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Fundo com Gradiente Dinâmico (Mesh Gradient) */
-body {
-  background-color: var(--bg-base);
-  background-image: 
-    radial-gradient(at 10% 10%, rgba(224, 92, 54, 0.05) 0px, transparent 50%),
-    radial-gradient(at 90% 10%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
-    radial-gradient(at 50% 90%, rgba(15, 23, 42, 0.03) 0px, transparent 50%);
-  background-attachment: fixed;
-  color: var(--text-main);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.hidden { display: none !important; }
-
-/* =========================================
-   CABEÇALHO FLUTUANTE (Floating Header)
-   ========================================= */
-.cabecalho-site {
-  position: sticky;
-  top: 20px;
-  z-index: 100;
-  margin: 0 24px;
-}
-
-.nav-bar {
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
-  padding: 16px 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: var(--glass-shadow);
-  transition: transform 0.3s ease;
-}
-
-.logotipo {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  color: var(--accent-primary);
-  cursor: pointer;
-}
-
-.logotipo span { color: var(--text-main); }
-
-/* =========================================
-   TYPOGRAPHY & HERO SECTION
-   ========================================= */
-.hero {
-  text-align: center;
-  padding: 10vh 0 8vh;
-  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.hero h2 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
-  letter-spacing: -1.5px;
-  line-height: 1.1;
-  background: linear-gradient(135deg, var(--text-main) 0%, var(--accent-secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 24px;
-}
-
-.hero p {
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
-  color: var(--text-muted);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* =========================================
-   GRID & CARDS (Efeitos 3D Suaves)
-   ========================================= */
-.sessao-categoria {
-  margin-bottom: 80px;
-  position: relative;
-}
-
-.sessao-titulo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 32px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.grid-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
-}
-
-.card {
-  background: linear-gradient(145deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.4) 100%);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
-  padding: 32px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.4s var(--spring-easing);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.02);
-  /* Prepara para a animação de entrada JS */
-  opacity: 0; 
-  transform: translateY(30px);
-  animation: fadeUp 0.8s var(--spring-easing) forwards;
-}
-
-/* Efeito de Brilho Interno no Hover */
-.card::before {
-  content: '';
-  position: absolute;
+/* Fundo Escuro com Desfoque (Glass Overlay) */
+.modal-overlay {
+  position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: 24px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, transparent 100%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08), 0 0 0 1px var(--accent-primary);
-}
-
-.card:hover::before { opacity: 1; }
-
-.card > * { position: relative; z-index: 1; }
-
-.card-header {
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+  padding: 20px;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
 }
 
-.card-emoji {
-  font-size: 2.2rem;
-  background: #fff;
-  padding: 12px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+/* Janela do Modal */
+.modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto; /* Rolagem interna apenas no modal */
+  border-radius: 32px;
+  padding: 40px;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.15);
+  border: 1px solid rgba(255,255,255,0.8);
+  position: relative;
+  transform: scale(0.95) translateY(20px);
+  animation: scaleUp 0.4s var(--spring-easing) forwards;
 }
 
-.card h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-main);
-  line-height: 1.3;
-}
-
-.card p {
-  font-size: 1rem;
+/* Botões de Controle do Modal */
+.btn-fechar {
+  position: absolute;
+  top: 24px; right: 24px;
+  background: #f1f5f9;
+  border: none;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
   color: var(--text-muted);
-  flex-grow: 1;
-  margin-bottom: 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 10;
 }
-
-/* =========================================
-   SUBPÁGINA (Micro-artigo Imersivo)
-   ========================================= */
-#detalhes-view {
-  padding: 6vh 0;
-  max-width: 800px;
-  margin: 0 auto;
-  animation: fadeUp 0.6s var(--spring-easing);
-}
+.btn-fechar:hover { background: #e2e8f0; color: var(--accent-primary); transform: rotate(90deg); }
 
 .btn-voltar {
   background: transparent;
   border: none;
   color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: color 0.2s;
 }
-
 .btn-voltar:hover { color: var(--accent-primary); }
 
-.conteudo-artigo {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(24px);
-  border: 1px solid var(--glass-border);
-  padding: 56px;
-  border-radius: 32px;
-  box-shadow: 0 24px 48px rgba(0,0,0,0.05);
-}
+/* Ajustes Internos do Modal */
+.modal-header { text-align: center; margin-bottom: 32px; }
+.emoji-gigante { font-size: 3.5rem; display: block; margin-bottom: 16px; }
+.tag-categoria { background: #e0e7ff; color: var(--accent-secondary); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; display: inline-block; margin-top: 12px; }
 
-.dor-box {
-  background: linear-gradient(90deg, rgba(224, 92, 54, 0.1) 0%, transparent 100%);
-  border-left: 4px solid var(--accent-primary);
-  padding: 24px;
-  border-radius: 0 16px 16px 0;
+/* Ads dentro do modal */
+.ads-modal {
   margin: 32px 0;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.03);
 }
 
-.btn-primario {
-  display: inline-block;
-  background: var(--text-main);
-  color: #fff;
-  text-decoration: none;
-  padding: 18px 40px;
-  border-radius: 100px; /* Botão pílula moderno */
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
-}
+/* Ocultar elementos via JS */
+.hidden { display: none !important; }
 
-.btn-primario:hover {
-  background: var(--accent-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(224, 92, 54, 0.3);
-}
+/* Keyframes de Animação dos Modais */
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes scaleUp { to { transform: scale(1) translateY(0); } }
 
-/* =========================================
-   KEYFRAMES DE ANIMAÇÃO
-   ========================================= */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Ajuste Responsivo para o Modal */
+@media (max-width: 768px) {
+  .modal-content { padding: 24px; border-radius: 24px; }
+  .btn-fechar { top: 16px; right: 16px; }
 }
