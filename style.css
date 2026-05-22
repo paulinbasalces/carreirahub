@@ -300,3 +300,55 @@ body.modal-open { overflow: hidden; }
   .btn-fechar { top: 16px; right: 16px; }
   .grid-cards { grid-template-columns: 1fr; }
 }
+
+/* =========================================
+   ESTILOS DE CATEGORIAS E RODAPÉ (ATUALIZAÇÃO)
+   ========================================= */
+
+.sessao-categoria {
+  margin-bottom: 20px;
+}
+
+.sessao-titulo {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.ads-home {
+  margin: 60px 0 80px 0; /* Espaço generoso entre o anúncio e as ferramentas */
+}
+
+#artigo-descricao {
+  font-size: 1.1rem; 
+  color: var(--text-muted); 
+  line-height: 1.8; 
+  margin-bottom: 30px;
+}
+
+/* Rodapé Premium Glassmorphism */
+.rodape-site {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--glass-border);
+  padding: 50px 24px;
+  text-align: center;
+  margin-top: 80px;
+  color: var(--text-muted);
+}
+
+.rodape-site p {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.rodape-site strong {
+  color: var(--text-main);
+}
