@@ -1,0 +1,324 @@
+{
+  "ferramentas": [
+    {
+      "id": "calc-rescisao",
+      "nome": "Cálculo Exato de Rescisão",
+      "categoria": "Cálculos e Direitos",
+      "emoji": "🧮",
+      "dor_resolvida": "Medo de receber menos na demissão.",
+      "descricao": "Simulador confiável para calcular FGTS, férias proporcionais e aviso prévio rapidamente.",
+      "url": "https://www.calculadorafacil.com.br/trabalhista/calculo-rescisao",
+      "tags": ["rescisão", "demissão", "direitos"]
+    },
+    {
+      "id": "calc-clt-pj",
+      "nome": "Comparador CLT vs PJ",
+      "categoria": "Cálculos e Direitos",
+      "emoji": "🧮",
+      "dor_resolvida": "Insegurança ao avaliar uma nova proposta.",
+      "descricao": "Descubra qual o valor exato que você precisa cobrar como PJ para empatar com os benefícios CLT.",
+      "url": "https://www.apontador.com.br/calculadora-clt-pj",
+      "tags": ["salário", "freelancer", "impostos"]
+    },
+    {
+      "id": "calc-seguro-desemprego",
+      "nome": "Calculadora Seguro-Desemprego",
+      "categoria": "Cálculos e Direitos",
+      "emoji": "🧮",
+      "dor_resolvida": "Planejamento financeiro pós-demissão.",
+      "descricao": "Saiba exatamente quantas parcelas e qual o valor do benefício você tem direito a receber.",
+      "url": "https://www.idinheiro.com.br/calculadoras/calculadora-seguro-desemprego/",
+      "tags": ["seguro", "governo", "demissão"]
+    },
+    {
+      "id": "calc-salario-liquido",
+      "nome": "Cálculo de Salário Líquido",
+      "categoria": "Cálculos e Direitos",
+      "emoji": "🧮",
+      "dor_resolvida": "Dúvida sobre os descontos no contracheque.",
+      "descricao": "Insira o salário bruto e veja os descontos exatos de INSS e IRPF atualizados deste ano.",
+      "url": "https://www.todacarreira.com/calculadora-salario-liquido/",
+      "tags": ["salário", "imposto", "contracheque"]
+    },
+    {
+      "id": "calc-ferias",
+      "nome": "Simulador de Férias",
+      "categoria": "Cálculos e Direitos",
+      "emoji": "🧮",
+      "dor_resolvida": "Não saber quanto vai receber antes de viajar.",
+      "descricao": "Calcule o valor do seu adiantamento de férias, incluindo o terço constitucional e descontos.",
+      "url": "https://www.mobills.com.br/calculadoras/calculadora-de-ferias/",
+      "tags": ["férias", "descanso", "planejamento"]
+    },
+    {
+      "id": "calc-horas-extras",
+      "nome": "Cálculo de Horas Extras",
+      "categoria": "Cálculos e Direitos",
+      "emoji": "🧮",
+      "dor_resolvida": "Incerteza se o banco de horas foi pago certo.",
+      "descricao": "Ferramenta para descobrir o valor exato da sua hora extra com acréscimo de 50% ou 100%.",
+      "url": "https://www.calculadorafacil.com.br/trabalhista/calculo-hora-extra",
+      "tags": ["hora extra", "pagamento", "salário"]
+    },
+    {
+      "id": "calc-13-salario",
+      "nome": "Calculadora de 13º Salário",
+      "categoria": "Cálculos e Direitos",
+      "emoji": "🧮",
+      "dor_resolvida": "Planejamento de gastos no fim de ano.",
+      "descricao": "Calcule rapidamente o valor da primeira e segunda parcela do seu décimo terceiro.",
+      "url": "https://www.idinheiro.com.br/calculadoras/calculadora-decimo-terceiro/",
+      "tags": ["13", "fim de ano", "benefício"]
+    },
+    {
+      "id": "calc-adicional-noturno",
+      "nome": "Adicional Noturno",
+      "categoria": "Cálculos e Direitos",
+      "emoji": "🧮",
+      "dor_resolvida": "Dúvidas sobre o acréscimo de trabalho noturno.",
+      "descricao": "Simule o valor adicional que você deve receber por trabalhar entre as 22h e as 5h.",
+      "url": "https://www.calculadorafacil.com.br/trabalhista/calculo-adicional-noturno",
+      "tags": ["noturno", "salário", "acréscimo"]
+    },
+    {
+      "id": "ia-curriculo-ats",
+      "nome": "Otimizador de Currículo (ATS)",
+      "categoria": "Busca e Vagas",
+      "emoji": "🎯",
+      "dor_resolvida": "Enviar currículos e ser ignorado pelos robôs.",
+      "descricao": "IA que ajusta as palavras-chave do seu currículo para passar pelos filtros de RH das empresas.",
+      "url": "https://resumeworded.com",
+      "tags": ["ia", "currículo", "entrevista"]
+    },
+    {
+      "id": "ia-entrevista-google",
+      "nome": "Google Interview Warmup",
+      "categoria": "Busca e Vagas",
+      "emoji": "🎯",
+      "dor_resolvida": "Branco e ansiedade na hora da entrevista.",
+      "descricao": "Simulador de IA do Google que escuta suas respostas e ajuda a melhorar sua clareza.",
+      "url": "https://grow.google/certificates/interview-warmup/",
+      "tags": ["entrevista", "treinamento", "google"]
+    },
+    {
+      "id": "gerador-carta",
+      "nome": "Gerador de Carta de Apresentação",
+      "categoria": "Busca e Vagas",
+      "emoji": "🎯",
+      "dor_resolvida": "Bloqueio criativo para escrever sobre si mesmo.",
+      "descricao": "Use IA para criar cartas de apresentação personalizadas baseadas na vaga que você quer.",
+      "url": "https://rxresu.me/pt-BR",
+      "tags": ["carta", "currículo", "apresentação"]
+    },
+    {
+      "id": "glassdoor-salarios",
+      "nome": "Radar de Salários Glassdoor",
+      "categoria": "Busca e Vagas",
+      "emoji": "🎯",
+      "dor_resolvida": "Não saber quanto pedir na pretensão salarial.",
+      "descricao": "Consulte anonimamente os salários reais praticados pelas empresas antes de ir para a entrevista.",
+      "url": "https://www.glassdoor.com.br/Sal%C3%A1rios/index.htm",
+      "tags": ["salário", "pesquisa", "negociação"]
+    },
+    {
+      "id": "jobscan-match",
+      "nome": "Jobscan Matcher",
+      "categoria": "Busca e Vagas",
+      "emoji": "🎯",
+      "dor_resolvida": "Dúvida se o currículo serve para a vaga.",
+      "descricao": "Cole seu currículo e a descrição da vaga. A ferramenta diz a porcentagem de compatibilidade.",
+      "url": "https://www.jobscan.co/",
+      "tags": ["vaga", "match", "currículo"]
+    },
+    {
+      "id": "linkedin-alumni",
+      "nome": "Radar de Ex-Alunos LinkedIn",
+      "categoria": "Busca e Vagas",
+      "emoji": "🎯",
+      "dor_resolvida": "Falta de contatos para indicação em empresas.",
+      "descricao": "Descubra pessoas que estudaram na mesma instituição que você e trabalham onde você quer estar.",
+      "url": "https://www.linkedin.com/alumni",
+      "tags": ["networking", "linkedin", "indicação"]
+    },
+    {
+      "id": "remotar-vagas",
+      "nome": "Portal Remotar",
+      "categoria": "Busca e Vagas",
+      "emoji": "🎯",
+      "dor_resolvida": "Dificuldade em achar vagas puramente remotas.",
+      "descricao": "Curadoria focada 100% em oportunidades de trabalho remoto no Brasil e no exterior.",
+      "url": "https://remotar.com.br/",
+      "tags": ["remoto", "home office", "vagas"]
+    },
+    {
+      "id": "cultivated-culture",
+      "nome": "Cultivated Culture CV",
+      "categoria": "Busca e Vagas",
+      "emoji": "🎯",
+      "dor_resolvida": "Currículo feio que não chama a atenção.",
+      "descricao": "Construtor de currículos moderno e gratuito focado em design aprovado por recrutadores de tech.",
+      "url": "https://cultivatedculture.com/resume-builder/",
+      "tags": ["design", "currículo", "templates"]
+    },
+    {
+      "id": "ia-email-corporativo",
+      "nome": "Gerador de E-mails (IA)",
+      "categoria": "Rotina Automática",
+      "emoji": "⚡",
+      "dor_resolvida": "Perder horas pensando no tom de um e-mail difícil.",
+      "descricao": "Use a IA (ChatGPT) para parametrizar e redigir pedidos de aumento, feedbacks ou negociações.",
+      "url": "https://chatgpt.com",
+      "tags": ["email", "comunicação", "ia"]
+    },
+    {
+      "id": "languagetool",
+      "nome": "Revisor LanguageTool",
+      "categoria": "Rotina Automática",
+      "emoji": "⚡",
+      "dor_resolvida": "Insegurança ao enviar mensagens para a diretoria.",
+      "descricao": "Extensão gratuita que corrige gramática e estilo nos seus e-mails e documentos em tempo real.",
+      "url": "https://languagetool.org/pt-BR",
+      "tags": ["escrita", "revisão", "extensão"]
+    },
+    {
+      "id": "turboscribe-transcricao",
+      "nome": "Transcritor TurboScribe",
+      "categoria": "Rotina Automática",
+      "emoji": "⚡",
+      "dor_resolvida": "Esquecer os combinados de reuniões longas.",
+      "descricao": "IA que transcreve áudios e reuniões para texto rapidamente, gerando resumos automáticos.",
+      "url": "https://turboscribe.ai/pt",
+      "tags": ["reunião", "transcrição", "áudio"]
+    },
+    {
+      "id": "trello-kanban",
+      "nome": "Trello para Organização",
+      "categoria": "Rotina Automática",
+      "emoji": "⚡",
+      "dor_resolvida": "Sobrecarga de tarefas e desorganização visual.",
+      "descricao": "O método visual mais simples para acompanhar suas entregas diárias e não perder prazos.",
+      "url": "https://trello.com/pt-BR",
+      "tags": ["produtividade", "gestão", "tarefas"]
+    },
+    {
+      "id": "pomofocus",
+      "nome": "Pomofocus Timer",
+      "categoria": "Rotina Automática",
+      "emoji": "⚡",
+      "dor_resolvida": "Procrastinação crônica no home office.",
+      "descricao": "Temporizador focado na técnica Pomodoro. Trabalhe 25 minutos com foco total e descanse 5.",
+      "url": "https://pomofocus.io/",
+      "tags": ["foco", "pomodoro", "tempo"]
+    },
+    {
+      "id": "toggl-track",
+      "nome": "Toggl Track",
+      "categoria": "Rotina Automática",
+      "emoji": "⚡",
+      "dor_resolvida": "Não saber para onde vai o tempo do dia.",
+      "descricao": "Controle o tempo gasto em cada tarefa ou cliente com um único clique no navegador.",
+      "url": "https://toggl.com/track/",
+      "tags": ["timesheet", "gestão", "horas"]
+    },
+    {
+      "id": "todoist-tarefas",
+      "nome": "Todoist",
+      "categoria": "Rotina Automática",
+      "emoji": "⚡",
+      "dor_resolvida": "Esquecer pequenas tarefas e follow-ups.",
+      "descricao": "O gerenciador de listas de tarefas mais rápido para capturar ideias antes que elas sumam.",
+      "url": "https://todoist.com/pt-BR",
+      "tags": ["lista", "tarefas", "lembretes"]
+    },
+    {
+      "id": "notion-templates",
+      "nome": "Notion (Templates Pessoais)",
+      "categoria": "Rotina Automática",
+      "emoji": "⚡",
+      "dor_resolvida": "Anotações e documentos espalhados em vários apps.",
+      "descricao": "Crie uma wiki pessoal da sua carreira, unindo notas, metas e portfólio em um só lugar.",
+      "url": "https://www.notion.so/pt-br",
+      "tags": ["wiki", "organização", "notas"]
+    },
+    {
+      "id": "livro-essencialismo",
+      "nome": "Essencialismo (Livro)",
+      "categoria": "Biblioteca de Carreira",
+      "emoji": "📚",
+      "dor_resolvida": "Burnout por tentar abraçar o mundo.",
+      "descricao": "Aprenda a focar apenas no que traz resultado e saiba como dizer 'não' de forma profissional.",
+      "url": "https://www.amazon.com.br/s?k=essencialismo",
+      "tags": ["livro", "saúde mental", "foco"]
+    },
+    {
+      "id": "podcast-cbn",
+      "nome": "Podcast CBN Profissional",
+      "categoria": "Biblioteca de Carreira",
+      "emoji": "📚",
+      "dor_resolvida": "Desatualização sobre o mercado de trabalho.",
+      "descricao": "Dicas diárias curtas sobre comportamento corporativo, tendências e gestão de carreira.",
+      "url": "https://open.spotify.com/show/0O56m1YtY13D9fA6j9eA1D",
+      "tags": ["podcast", "mercado", "atualização"]
+    },
+    {
+      "id": "livro-habitos-atomicos",
+      "nome": "Hábitos Atômicos (Livro)",
+      "categoria": "Biblioteca de Carreira",
+      "emoji": "📚",
+      "dor_resolvida": "Dificuldade em manter rotinas de estudo ou trabalho.",
+      "descricao": "O guia definitivo para criar bons hábitos diários e se livrar daqueles que atrasam sua carreira.",
+      "url": "https://www.amazon.com.br/s?k=habitos+atomicos",
+      "tags": ["livro", "hábitos", "rotina"]
+    },
+    {
+      "id": "ted-carreira",
+      "nome": "TED Talks: Carreira",
+      "categoria": "Biblioteca de Carreira",
+      "emoji": "📚",
+      "dor_resolvida": "Falta de inspiração e visão de futuro.",
+      "descricao": "Playlist oficial do TED com as melhores palestras globais sobre sucesso, liderança e propósito.",
+      "url": "https://www.ted.com/topics/career",
+      "tags": ["vídeo", "palestra", "inspiração"]
+    },
+    {
+      "id": "podcast-resumocast",
+      "nome": "Podcast ResumoCast",
+      "categoria": "Biblioteca de Carreira",
+      "emoji": "📚",
+      "dor_resolvida": "Falta de tempo para ler livros de negócios.",
+      "descricao": "Empreendedores debatem e resumem os maiores best-sellers de negócios e desenvolvimento pessoal.",
+      "url": "https://www.resumocast.com.br/",
+      "tags": ["podcast", "livros", "resumo"]
+    },
+    {
+      "id": "livro-mindset",
+      "nome": "Mindset (Livro)",
+      "categoria": "Biblioteca de Carreira",
+      "emoji": "📚",
+      "dor_resolvida": "Medo de falhar ao tentar uma nova profissão.",
+      "descricao": "Entenda a diferença entre a mentalidade fixa e de crescimento, e como isso afeta sua jornada.",
+      "url": "https://www.amazon.com.br/s?k=mindset+carol+dweck",
+      "tags": ["livro", "psicologia", "crescimento"]
+    },
+    {
+      "id": "podcast-os-socios",
+      "nome": "Podcast Os Sócios",
+      "categoria": "Biblioteca de Carreira",
+      "emoji": "📚",
+      "dor_resolvida": "Falta de visão financeira e estratégica.",
+      "descricao": "Conversas profundas sobre economia, negócios e dinheiro para alavancar sua visão corporativa.",
+      "url": "https://open.spotify.com/show/3q0d0O0c0FwJ6v0t2rDk1L",
+      "tags": ["podcast", "negócios", "finanças"]
+    },
+    {
+      "id": "livro-comece-pelo-porque",
+      "nome": "Comece Pelo Porquê (Livro)",
+      "categoria": "Biblioteca de Carreira",
+      "emoji": "📚",
+      "dor_resolvida": "Sentimento de estar perdido na profissão atual.",
+      "descricao": "Como grandes líderes inspiram ação. Uma leitura fundamental para quem quer liderar equipes.",
+      "url": "https://www.amazon.com.br/s?k=comece+pelo+porque",
+      "tags": ["livro", "liderança", "propósito"]
+    }
+  ]
+}

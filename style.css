@@ -1,0 +1,103 @@
+/* Variáveis da Paleta Humana */
+:root {
+  --bg-polen: #FDFBF7;
+  --text-carvao: #2D3142;
+  --accent-terracota: #D96C4E;
+  --accent-verde: #7B9E87;
+  --borda-suave: #E2DFD6;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: var(--bg-polen);
+  color: var(--text-carvao);
+  line-height: 1.6;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* Cabeçalho */
+.cabecalho-site { padding: 20px 0; border-bottom: 1px solid var(--borda-suave); }
+.logotipo { font-size: 1.8rem; color: var(--accent-terracota); font-weight: bold; }
+.logotipo span { color: var(--text-carvao); font-weight: 300; }
+.menu-principal { display: flex; gap: 20px; list-style: none; margin-top: 10px; }
+.menu-principal a { color: var(--text-carvao); text-decoration: none; font-weight: 500; }
+
+/* Hero */
+.hero { text-align: center; padding: 60px 0 40px; }
+.hero h2 { font-size: 2.5rem; margin-bottom: 15px; color: var(--text-carvao); }
+.hero p { font-size: 1.1rem; color: #4A4E69; }
+
+/* Grid de Ferramentas */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 40px 0;
+}
+
+/* UX Design: Cards Táteis e Escaneáveis */
+.card {
+  background: #ffffff;
+  border: 1px solid var(--borda-suave);
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover, .card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+  border-color: var(--accent-verde);
+}
+
+.card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.card-emoji { font-size: 1.8rem; }
+.card h3 { font-size: 1.25rem; font-weight: 700; }
+
+.dor-badge {
+  display: inline-block;
+  background: #F0EDE1;
+  color: var(--text-carvao);
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.card p { font-size: 0.95rem; margin-bottom: 24px; color: #4A4E69; flex-grow: 1; }
+
+.card a {
+  text-align: center;
+  background-color: var(--accent-terracota);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s, outline 0.2s;
+}
+
+/* Foco de Acessibilidade */
+.card a:hover, .card a:focus { 
+  background-color: #c2593d; 
+  outline: 3px solid var(--accent-verde); 
+  outline-offset: 2px;
+}
+
+/* Zonas de Publicidade (AdSense) */
+.area-adsense {
+  background: #F4F1E9;
+  border: 2px dashed var(--borda-suave);
+  text-align: center;
+  padding: 40px 20px;
+  margin: 40px auto;
+  border-radius: 12px;
+}
+.ads-label { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1.5px; }
