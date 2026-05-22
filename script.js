@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let baseDeDados = [];
 
-    // Carrega os Dados do JSON
+    // 1. Carrega os Dados do JSON
     fetch('dados.json')
         .then(response => response.json())
         .then(data => {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(erro => console.error('Erro ao carregar o JSON:', erro));
 
-    // Renderiza a Home Completa com Anúncios Separando as Categorias
+    // 2. Renderiza a Home Completa com Anúncios Separando as Categorias
     function renderizarHome(ferramentas) {
         const container = document.getElementById('container-categorias-home');
         container.innerHTML = ''; 
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Abre o Modal Detalhado da Ferramenta
+    // 3. Abre o Modal Detalhado da Ferramenta e Injeta o Rastreio (Referral)
     window.abrirModalFerramenta = function(id) {
         const ferramenta = baseDeDados.find(f => f.id === id);
         if (!ferramenta) return;
@@ -72,14 +72,24 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('artigo-titulo').textContent = ferramenta.nome;
         document.getElementById('artigo-dor').textContent = ferramenta.dor_resolvida;
         document.getElementById('artigo-descricao').textContent = ferramenta.descricao;
-        document.getElementById('artigo-link').href = ferramenta.url;
+        
+        // LÓGICA DE REFERRAL (RASTREIO)
+        try {
+            const urlFormatada = new URL(ferramenta.url);
+            urlFormatada.searchParams.append('ref', 'portalcuradoria');
+            urlFormatada.searchParams.append('utm_source', 'portalcuradoria');
+            document.getElementById('artigo-link').href = urlFormatada.toString();
+        } catch (e) {
+            // Fallback de segurança caso a URL esteja mal formatada no JSON
+            document.getElementById('artigo-link').href = ferramenta.url;
+        }
 
         mostrarOverlay();
         document.getElementById('modal-ferramenta').classList.remove('hidden');
         document.getElementById('modal-ferramenta').scrollTo(0, 0); 
     };
 
-    // Funções de Controle do Modal
+    // 4. Funções de Controle do Modal
     window.mostrarOverlay = function() {
         document.getElementById('modal-overlay').classList.remove('hidden');
         document.body.classList.add('modal-open'); 
