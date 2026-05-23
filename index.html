@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Carreira do Futuro | Ferramentas e Atalhos Profissionais</title>
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
 
@@ -22,8 +22,8 @@
 
     <main class="container" id="conteudo-principal">
         <section class="hero">
-            <h2>Escolha sua jornada</h2>
-            <p>Explore nossa seleção de ferramentas e conteúdos gratuitos para alavancar sua trajetória profissional.</p>
+            <h2 class="hero-title">Escolha sua jornada</h2>
+            <p>Explore nossa curadoria definitiva de ferramentas e conteúdos gratuitos para alavancar sua trajetória profissional.</p>
             
             <div class="busca-container">
                 <form action="https://www.google.com/search" method="get" target="_blank" class="busca-form" role="search">
@@ -33,8 +33,12 @@
                 </form>
             </div>
 
-            <nav id="links-rapidos" class="links-rapidos-container" aria-label="Categorias de ferramentas"></nav>
+            <nav id="links-rapidos" class="bento-grid-container" aria-label="Acesso rápido às categorias"></nav>
         </section>
+
+        <div class="area-adsense ads-vip container">
+            <p class="ads-label">Espaço Publicitário em Destaque</p>
+        </div>
 
         <div id="container-categorias-home"></div>
     </main>
@@ -60,12 +64,20 @@
                 <p id="artigo-descricao"></p>
             </div>
 
-            <div class="area-adsense ads-modal">
-                <p class="ads-label">Espaço Publicitário</p>
+            <div class="acoes-ferramenta">
+                <a id="artigo-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-primario">Acessar Plataforma Oficial</a>
+                
+                <div class="share-buttons">
+                    <p class="share-title">Compartilhar ferramenta útil:</p>
+                    <div class="share-icons">
+                        <button id="btn-share-zap" class="btn-share zap" aria-label="Compartilhar no WhatsApp">WhatsApp</button>
+                        <button id="btn-share-in" class="btn-share in" aria-label="Compartilhar no LinkedIn">LinkedIn</button>
+                    </div>
+                </div>
             </div>
 
-            <div style="text-align: center; margin-top: 24px;">
-                <a id="artigo-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-primario">Acessar Plataforma Oficial</a>
+            <div class="area-adsense ads-modal">
+                <p class="ads-label">Espaço Publicitário</p>
             </div>
         </div>
     </div>
@@ -74,11 +86,20 @@
 
     <footer class="rodape-site">
         <div class="container">
-            <p><strong>Portal Carreira do Futuro</strong> &copy; 2026. Construído para o trabalhador moderno.</p>
-            <p>Nossa monetização vem exclusivamente dos anúncios exibidos.</p>
+            
+            <article class="sobre-portal-rodape">
+                <h3>Hub Definitivo de Empregabilidade e Produtividade</h3>
+                <p>Encontre as melhores ferramentas online gratuitas para gestão de carreira. Nosso portal oferece calculadoras trabalhistas exatas (rescisão, seguro-desemprego, CLT vs PJ, horas extras, décimo terceiro e férias), otimizadores de currículo com Inteligência Artificial (ATS), simuladores de entrevista de emprego, geradores de cartas de apresentação, aplicativos de produtividade corporativa, transcritores de reuniões, e as melhores indicações de livros e podcasts de liderança. Curadoria manual focada em poupar tempo e alavancar salários no mercado de trabalho brasileiro.</p>
+            </article>
+
+            <div class="rodape-main">
+                <p><strong>Portal Carreira do Futuro</strong> &copy; 2026. Feito para o trabalhador moderno.</p>
+                <p>Nossa monetização vem exclusivamente dos anúncios exibidos.</p>
+            </div>
+            
         </div>
     </footer>
 
-    <script src="script.js?v=6"></script>
+    <script src="script.js?v=8"></script>
 </body>
 </html>
