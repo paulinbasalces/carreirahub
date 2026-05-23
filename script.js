@@ -132,6 +132,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const textoFormatado = encodeURIComponent(`${textoShare}\n\nAcesse: ${linkSite}`);
         const linkSiteFormatado = encodeURIComponent(linkSite);
 
+        // Substitua o innerHTML do botoes-share por este bloco:
+    <button class="btn-social" onclick="window.open('https://api.whatsapp.com/send?text=${f.url}')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.65-3.8A9 9 0 1 1 12 21h-9z"/></svg>
+    </button>
+    <button class="btn-social" onclick="window.open('https://bsky.app/intent/compose?text=${f.nome}')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </button>
+    <button class="btn-social" onclick="window.open('https://www.threads.net/intent/post?text=${f.nome}')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+    </button>`;
+
         if (navigator.share && window.innerWidth <= 768) {
             const btnNative = document.createElement('button');
             btnNative.className = 'btn-share native';
