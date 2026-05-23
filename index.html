@@ -1,69 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Carreira do Futuro | Ferramentas e Atalhos</title>
-    <link rel="stylesheet" href="style.css?v=11">
+    <meta charset="UTF-8"><title>Portal Carreira do Futuro</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <header class="cabecalho-site">
-        <div class="container nav-bar">
-            <h1 class="logotipo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Portal<span>Carreira do Futuro</span></h1>
-            <div class="controles-a11y">
-                <button id="btn-fonte-menos" class="btn-a11y">A-</button>
-                <button id="btn-fonte-mais" class="btn-a11y">A+</button>
-                <button id="btn-tema" class="btn-a11y">🌓</button>
-            </div>
-        </div>
-    </header>
+    <header><div class="container nav-bar"><h1>Portal Carreira do Futuro</h1></div></header>
     <main class="container">
         <section class="hero">
-            <h2 class="hero-title">Escolha sua jornada</h2>
-            <p>Curadoria de ferramentas gratuitas para alavancar sua trajetória profissional.</p>
-            <div class="busca-container">
-                <form action="https://www.google.com/search" method="get" target="_blank" class="busca-form">
-                    <input type="search" name="q" placeholder="Pesquisar ferramentas, cálculos, vagas..." required>
-                    <button type="submit" class="btn-busca">Buscar</button>
-                </form>
-            </div>
+            <h2>Escolha sua jornada</h2>
+            <div class="busca-container"><form action="https://google.com/search" target="_blank"><input name="q" placeholder="Pesquisar..."><button>Buscar</button></form></div>
             <nav id="links-rapidos" class="bento-grid-container"></nav>
         </section>
-        <div class="area-adsense ads-vip container"><p class="ads-label">Espaço Publicitário</p></div>
         <div id="container-categorias-home"></div>
     </main>
-
     <div id="modal-overlay" class="modal-overlay hidden" onclick="fecharAoClicarFora(event)">
-        <div id="modal-ferramenta" class="modal-content hidden">
-            <button class="btn-fechar" onclick="fecharTodosModais()">✕</button>
-            <div class="modal-header-compacto">
-                <span id="artigo-emoji" class="emoji-medio"></span>
-                <div><h2 id="artigo-titulo"></h2><span id="artigo-categoria" class="tag-categoria"></span></div>
-            </div>
-            <div class="dor-box"><strong>💡 Resolve:</strong><p id="artigo-dor"></p></div>
-            <div class="artigo-corpo"><p id="artigo-descricao"></p></div>
-            <div class="acoes-ferramenta">
-                <a id="artigo-link" href="#" target="_blank" class="btn-primario">Acessar Plataforma</a>
-                <a id="btn-reportar" href="#" class="btn-reportar">Reportar link quebrado</a>
-                <div class="share-buttons">
-                    <p class="share-title">Compartilhar:</p>
-                    <div class="share-icons" id="botoes-compartilhamento"></div>
-                </div>
-            </div>
-            <div class="area-adsense ads-modal"><p class="ads-label">Espaço Publicitário</p></div>
-        </div>
+        <div id="modal-ferramenta" class="modal-content"><button class="btn-fechar" onclick="fecharTodosModais()">✕</button><h2 id="artigo-titulo"></h2><p id="artigo-dor"></p><p id="artigo-descricao"></p><a id="artigo-link" class="btn-primario" target="_blank">Acessar</a><a id="btn-reportar" class="btn-reportar">Reportar link quebrado</a></div>
     </div>
-    <button id="btn-voltar-topo" class="btn-voltar-topo hidden">↑</button>
-    <footer class="rodape-site">
-        <div class="container">
-            <article class="sobre-portal-rodape">
-                <h3>Hub de Empregabilidade e Produtividade</h3>
-                <p>Portal especializado em calculadoras trabalhistas, IA para carreira, saúde mental e finanças pessoais.</p>
-            </article>
-            <div class="rodape-main"><p><strong>Portal Carreira do Futuro</strong> © 2026.</p></div>
-        </div>
-    </footer>
-    <script src="script.js?v=11"></script>
+    <script src="script.js"></script>
 </body>
 </html>
